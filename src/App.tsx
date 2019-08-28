@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './App.css';
 
 import { red } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -54,12 +55,14 @@ class App extends React.Component {
               {/* <Hello /> */}
               <Header/>
               <HeaderBar/>
-              <Switch>
-                <Route path="/tab/newsong" component={NewSong} />
-                <Route path="/tab/rank" component={Rank} />
-                <Route path="/tab/songlist" component={SongList} />
-                <Route path="/tab/singer" component={Singer} />
-              </Switch>
+              <div className="tab-container">
+                <Switch>
+                  <Route path="/tab/newsong" component={NewSong} />
+                  <Route path="/tab/rank" component={Rank} />
+                  <Route path="/tab/songlist" component={SongList} />
+                  <Route path="/tab/singer" component={Singer} />
+                </Switch>
+              </div>
             </div>
           </MuiThemeProvider>
         </BrowserRouter>

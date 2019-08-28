@@ -40,7 +40,7 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 }
 
 // Tools like Cloud9 rely on this.
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3010;
 const HOST = process.env.HOST || '0.0.0.0';
 
 if (process.env.HOST) {
@@ -79,6 +79,32 @@ choosePort(HOST, DEFAULT_PORT)
       proxyConfig,
       urls.lanUrlForConfig
     );
+
+    // 添加devserver代理配置
+    serverConfig.proxy = {
+      '/proxy': {
+				target: 'http://m.kugou.com',
+				changeOrigin: true,
+				pathRewrite: {
+					'^/proxy': ''
+				}
+			},
+			'/aproxy': {
+				target: 'http://mobilecdn.kugou.com',
+				changeOrigin: true,
+				pathRewrite: {
+					'^/aproxy': ''
+				}
+			},
+			'/bproxy': {
+				target: 'http://www.kugou.com',
+				changeOrigin: true,
+				pathRewrite: {
+					'^/bproxy': ''
+				}
+			}
+    };
+
     const devServer = new WebpackDevServer(compiler, serverConfig);
     // Launch WebpackDevServer.
     devServer.listen(port, HOST, err => {
@@ -89,7 +115,8 @@ choosePort(HOST, DEFAULT_PORT)
         clearConsole();
       }
       console.log(chalk.cyan('Starting the development server...\n'));
-      openBrowser(urls.localUrlForBrowser);
+      // 禁止自动打开浏览器
+      // openBrowser(urls.localUrlForBrowser);
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {
