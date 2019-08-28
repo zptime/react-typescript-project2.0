@@ -4,7 +4,7 @@ import { red } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createStore } from 'redux';
 // import Hello from './containers/Hello';
 import { EnthusiasmAction } from './redux/actions';
@@ -12,7 +12,7 @@ import { enthusiasm } from './redux/reducers';
 import { IStoreState } from './redux/store';
 
 import Header from '@/components/Header'
-import HeaderNav from '@/components/HeaderNav'
+import HeaderBar from '@/components/HeaderBar'
 import NewSong from '@/page/Tab/NewSong'
 import Rank from '@/page/Tab/Rank'
 import Singer from '@/page/Tab/Singer'
@@ -53,13 +53,7 @@ class App extends React.Component {
             <div className="app">
               {/* <Hello /> */}
               <Header/>
-              <HeaderNav/>
-              <nav>
-                <Link to="/tab/newsong">NewSong</Link>
-                <Link to="/tab/rank">Rank</Link>
-                <Link to="/tab/songlist">SongList</Link>
-                <Link to="/tab/singer">Singer</Link>
-              </nav>
+              <HeaderBar/>
               <Switch>
                 <Route path="/tab/newsong" component={NewSong} />
                 <Route path="/tab/rank" component={Rank} />
