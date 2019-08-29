@@ -1,19 +1,17 @@
 import * as React from 'react';
 import './App.css';
 
-import store from '@/redux/store'
 import { red } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+
+import store from '@/redux/store'
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
 import Header from '@/components/Header'
 import HeaderBar from '@/components/HeaderBar'
-import NewSong from '@/page/Tab/NewSong'
-import Rank from '@/page/Tab/Rank'
-import Singer from '@/page/Tab/Singer'
-import SongList from '@/page/Tab/SongList'
+import { routes, routeWithSubRoutes } from './router';
 
 // A custom theme for this app
 const theme = createMuiTheme({
@@ -47,10 +45,9 @@ class App extends React.Component {
               <HeaderBar/>
               <div className="tab-container">
                 <Switch>
-                  <Route path="/tab/newsong" component={NewSong} />
-                  <Route path="/tab/rank" component={Rank} />
-                  <Route path="/tab/songlist" component={SongList} />
-                  <Route path="/tab/singer" component={Singer} />
+                  {
+                    routes.map((route, i) => routeWithSubRoutes(route, i))
+                  }
                 </Switch>
               </div>
             </div>

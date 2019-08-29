@@ -2,12 +2,12 @@
  * 创建一些actions以及创建这些actions的函数
  */
 import * as constants from '@/redux/constants';
-import { Action } from 'redux';
+// import { Action } from 'redux';
 
-export interface IAction<T = any, P = any> extends Action<T> {
-  // type: T;
-  payload: P;
-}
+// export interface IAction<T = any, P = any> extends Action<T> {
+//   // type: T;
+//   payload: P;
+// }
 
 // 负责增加操作的行为
 export interface IIncrementEnthusiasm {
