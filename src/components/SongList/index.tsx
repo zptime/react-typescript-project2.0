@@ -9,7 +9,7 @@ interface IProps{
 }
 
 class SongList extends React.Component<IProps> {
-  render() {
+  public render() {
     const { songs } = this.props;
 
     return (
@@ -20,8 +20,8 @@ class SongList extends React.Component<IProps> {
           ))
         }
       </div>
-    );
+    )
   }
 }
 
-export default SongList;
+export default SongList

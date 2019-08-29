@@ -1,14 +1,14 @@
-import Tab from '@material-ui/core/Tab';
-import Tabs from '@material-ui/core/Tabs';
-import * as React from 'react';
-import { Link } from "react-router-dom";
-import './headerBar.scss';
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import * as React from 'react'
+import { Link } from "react-router-dom"
+import './headerBar.scss'
 
 export default function HeaderBar() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(0)
 
   function handleChange(event: React.ChangeEvent, newValue: number) {
-    setValue(newValue);
+    setValue(newValue)
   }
 
   return (

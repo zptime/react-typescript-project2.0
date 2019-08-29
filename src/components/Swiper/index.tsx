@@ -12,8 +12,8 @@ interface IProps{
 }
 
 class Swiper extends React.Component<IProps> {
-  render() {
-    const { banners } = this.props;
+  public render() {
+    const { banners } = this.props
 
     return (
       <AutoPlaySwipeableViews interval={3000}>
@@ -27,8 +27,8 @@ class Swiper extends React.Component<IProps> {
           ))
         }
       </AutoPlaySwipeableViews>
-    );
+    )
   }
 }
 
-export default Swiper;
+export default Swiper

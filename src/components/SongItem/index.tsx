@@ -1,5 +1,5 @@
 /*
- * 歌曲item
+ * 歌曲列表Item组件
  */
 // import * as React from 'react'
 import React, { MouseEventHandler } from 'react';
@@ -16,7 +16,7 @@ interface IProps{
 }
 
 class SongItem extends React.Component<IProps> {
-  render() {
+  public render() {
     const { title, rank, onClick, showDownload = true } = this.props;
 
     return (
@@ -28,8 +28,8 @@ class SongItem extends React.Component<IProps> {
           {title}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default SongItem;
+export default SongItem

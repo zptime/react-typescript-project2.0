@@ -43,13 +43,15 @@ app.use(express.static(path.resolve('./build')));
 
 /**
  * CORS support.
+ * 解决跨域问题：CORS 头缺少 'Access-Control-Allow-Origin'
  */
 // app.all('*', function (req, res, next) {
 //   if (!req.get('Origin')) {
 //     return next();
 //   }
 //   // use "*" here to accept any origin
-//   res.set('Access-Control-Allow-Origin', 'http://localhost:3000')
+//   // res.set('Access-Control-Allow-Origin', 'http://localhost:3010')
+//   res.set('Access-Control-Allow-Origin', '*')
 //   res.set('Access-Control-Allow-Methods', 'GET')
 //   res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type')
 //   res.set('Access-Control-Allow-Credentials', true);

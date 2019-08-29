@@ -24,18 +24,18 @@ class NewSong extends React.Component<IProps, IState> {
     }
   }
 
-  async componentDidMount() {
-    const { banners, songs } = this.props;
+  public async componentDidMount() {
+    const { banners, songs } = this.props
     if ( !banners || !songs) {
-      this.setData();
+      this.setData()
     }
   }
 
   // 获取数据
-  async setData() {
+  public async setData() {
     try {
       // 如果需要自定义error提示，则在此进行catch
-      const { data: { banner, data } } = await Api.getNewSong(true);
+      const { data: { banner, data } } = await Api.getNewSong(true)
       this.setState({ banners: banner })
       this.setState({ songs: data})
     } catch (e) {
@@ -43,15 +43,15 @@ class NewSong extends React.Component<IProps, IState> {
     }
   }
 
-  render() {
+  public render() {
 
     return (
       <div>
         <Swiper banners={this.state.banners} />
         <SongList songs={this.state.songs} />
       </div>
-    );
+    )
   }
 }
 
-export default NewSong;
+export default NewSong

@@ -1,8 +1,16 @@
 
-// Reducers是函数，它们负责生成应用state的拷贝使之产生变化，但它并没有副作用。 它们是一种纯函数。
+/*
+ * 合并root reducer
+ * Reducers是函数，它们负责生成应用state的拷贝使之产生变化，但它并没有副作用。 它们是一种纯函数。
+ */
 import { EnthusiasmAction } from '../actions';
 import { DECREMENT_ENTHUSIASM, INCREMENT_ENTHUSIASM } from '../constants';
+// import { combineReducers } from 'redux';
 import { IStoreState } from '../store';
+// import audio from './audio';
+// import header from './header';
+// import player from './player';
+// import playList from './playlist';
 
 export function enthusiasm(state: IStoreState, action: EnthusiasmAction): IStoreState {
   switch (action.type) {
@@ -14,3 +22,10 @@ export function enthusiasm(state: IStoreState, action: EnthusiasmAction): IStore
   }
   return state;
 }
+
+// export default combineReducers<IStoreState>({
+//   header,
+//   // audio,
+//   // player,
+//   // playList
+// })

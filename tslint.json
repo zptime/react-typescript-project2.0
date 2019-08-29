@@ -9,15 +9,10 @@
     ]
   },
   "rules": {
-    "object-literal-sort-keys": false,
-    "jsx-no-lambda": false,
-    "member-access": false,
     "no-debugger": false,
-    "no-console": false,
-    "no-shadowed-variable": false,
-    "no-unused-expression": false
+    "no-console": false
   },
   "jsRules": {
     "object-literal-sort-keys": false
-  }    
+  }
 }
