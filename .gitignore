@@ -19,3 +19,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+package-lock.json
+.editorconfig
+.eslintrc
+tsconfig.prod.json
+tsconfig.test.json
+README.md

@@ -31,5 +31,9 @@ https://codesandbox.io/s/l4yo482pll
 
 ## 20190829 周四
 (1) page/Tab/Rank 排行列表页
+
 (2) page/Tab/SongList 歌单列表页
-(3) page/Tab/Singer 歌手列表页
+
+(3) page/Tab/Singer 歌手分类列表页
+
+(4) page/SingerList 歌手列表页
