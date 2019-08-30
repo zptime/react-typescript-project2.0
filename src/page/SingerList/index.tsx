@@ -6,9 +6,13 @@ import * as React from 'react'
 import Api from '@/api'
 import { ISinger } from '@/api/api'
 import CardItem from '@/components/CardItem'
-import { Link } from 'react-router-dom'
+import { Link, RouteComponentProps } from 'react-router-dom'
 
-interface IProps{
+interface IRouteParams {
+  singerType: string
+}
+
+interface IProps extends RouteComponentProps<IRouteParams>{
   singers: ISinger[]
 }
 
@@ -25,7 +29,8 @@ class SingerList extends React.Component<IProps, IState> {
   }
 
   public async componentDidMount(){
-    const { data: { singers: { list: { info }}}} = await Api.getSingerList({singerType: '88'})
+    const { match: { params: { singerType } }} = this.props
+    const { data: { singers: { list: { info }}}} = await Api.getSingerList({singerType})
     this.setState({ singers: info })
   }
 
