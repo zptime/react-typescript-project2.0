@@ -9,6 +9,7 @@ export interface IRoute extends RouteProps {
   redirect?: string;
 }
 
+import RankInfo from '@/page/RankInfo'
 import SingerInfo from '@/page/SingerInfo'
 import SingerList from '@/page/SingerList'
 import NewSong from '@/page/Tab/NewSong'
@@ -56,12 +57,13 @@ export const singerRoute: IRoute = {
 //   component: asyncComponent(() => import('@/page/Tab/Search/Search'), 'SearchPage')
 // };
 
-// export const rankInfoRoute: IRoute = {
-//   name: 'RankInfo',
-//   exact: true,
-//   path: '/rank/info/:id',
-//   component: asyncComponent(() => import('@/page/RankInfo/RankInfo'), 'RankInfoPage')
-// };
+export const rankInfoRoute: IRoute = {
+  // component: asyncComponent(() => import('@/page/RankInfo/RankInfo'), 'RankInfoPage'),
+  component: RankInfo,
+  exact: true,
+  name: 'RankInfo',
+  path: '/rank/info/:id',
+};
 
 // export const songListInfoRoute: IRoute = {
 //   name: 'SongListInfo',
@@ -103,7 +105,7 @@ export const routes: IRoute[] = [
   rankRoute,
   songListRoute,
   singerRoute,
-  // rankInfoRoute,
+  rankInfoRoute,
   // songListInfoRoute,
   singerListRoute,
   singerInfoRoute,

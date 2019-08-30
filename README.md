@@ -42,13 +42,19 @@ https://codesandbox.io/s/l4yo482pll
 (1) page/SingerInfo 歌手信息页面
 参考网址：https://my.oschina.net/qiaotoubao/blog/3066608
 
-功能：获取路由参数<br>
+功能：获取路由参数
 import { RouteComponentProps } from "react-router-dom"
+
 interface IRouteParams {
   singerId: string; // 此处必须定义
 }
+
 interface IProps extends RouteComponentProps<IRouteParams> {
   singerInfo: ISingerInfo
 }
+
 const { match: { params: { singerId } }} = this.props
+
 this.props.match.params.singerId
+
+(2) page/RankInfo 排行信息页
