@@ -25,6 +25,7 @@ class SongList extends React.Component<IProps, IState> {
     const { data: { plist: { list: { info }} } }  = await Api.getSongs(true)
     this.setState({songLists: info})
   }
+
   public render() {
     return (
       <div>
