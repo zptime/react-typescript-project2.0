@@ -49,6 +49,8 @@ interface IRouteParams {
   singerId: string; // 此处必须定义
 }
 
+// type Props = RouteComponentProps<{id: string}>;<br>
+// 我们需要获取有关当前路径的信息，所以将Props声明为RouteComponentProps的一个“特例”，类型参数{id: string}表明我们希望从路径中取得一个名叫id类型为string的参数。要指出的是，当我们像这样写定一个组件的props的类型为一种RouteComponentProps时，一般来说，这个组件就只能用在Route匹配规则里面了。
 interface IProps extends RouteComponentProps<IRouteParams> {
   singerInfo: ISingerInfo
 }
