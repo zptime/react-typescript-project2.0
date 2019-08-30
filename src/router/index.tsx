@@ -12,6 +12,7 @@ export interface IRoute extends RouteProps {
 import RankInfo from '@/page/RankInfo'
 import SingerInfo from '@/page/SingerInfo'
 import SingerList from '@/page/SingerList'
+import SongListInfo from '@/page/SongListInfo'
 import NewSong from '@/page/Tab/NewSong'
 import Rank from '@/page/Tab/Rank'
 import Singer from '@/page/Tab/Singer'
@@ -65,13 +66,14 @@ export const rankInfoRoute: IRoute = {
   path: '/rank/info/:id',
 };
 
-// export const songListInfoRoute: IRoute = {
-//   name: 'SongListInfo',
-//   exact: true,
-//   // NOTE: 如何将path内的参数定义与组件内的RouteParams接口定义结合起来
-//   path: '/plist/info/:id',
-//   component: asyncComponent(() => import('@/page/SongListInfo/SongListInfo'), 'SongListInfoPage')
-// };
+export const songListInfoRoute: IRoute = {
+  // component: asyncComponent(() => import('@/page/SongListInfo/SongListInfo'), 'SongListInfoPage'),
+  component: SongListInfo,
+  exact: true,
+  name: 'SongListInfo',
+  // NOTE: 如何将path内的参数定义与组件内的RouteParams接口定义结合起来
+  path: '/plist/info/:id',
+};
 
 export const singerListRoute: IRoute = {
   // component: asyncComponent(() => import('@/page/SingerList'), 'SingerListPage'),
@@ -106,7 +108,7 @@ export const routes: IRoute[] = [
   songListRoute,
   singerRoute,
   rankInfoRoute,
-  // songListInfoRoute,
+  songListInfoRoute,
   singerListRoute,
   singerInfoRoute,
   // 定义重定向默认路由

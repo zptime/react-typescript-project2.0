@@ -58,3 +58,5 @@ const { match: { params: { singerId } }} = this.props
 this.props.match.params.singerId
 
 (2) page/RankInfo 排行信息页
+
+(3) page/SongListInfo 歌单信息页

@@ -1,5 +1,5 @@
 /*
- * 歌手信息页面：歌手简介、歌曲列表
+ * 排行信息页面：歌曲列表
  */
 import Api from '@/api'
 import { IRankInfo, ISong } from '@/api/api'
