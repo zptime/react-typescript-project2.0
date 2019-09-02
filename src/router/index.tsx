@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, RouteProps } from "react-router-dom";
+import { Redirect, Route, RouteProps } from "react-router-dom";
 
 // import asyncComponent from '@/utils/asyncComponent';
 
@@ -112,30 +112,25 @@ export const routes: IRoute[] = [
   singerListRoute,
   singerInfoRoute,
   // 定义重定向默认路由
-  // {
-  //   path: "/*",
-  //   redirect: '/tab/newsong'
-  // }
+  {
+    path: "/*",
+    redirect: '/tab/newsong'
+  }
 ];
 
 export function routeWithSubRoutes(route: IRoute, key: number | null = null, props: any = null) {
-  // const { path, exact, routes: subRoutes, redirect, component: Component } = route;
-  const { path, exact, component } = route;
+  const { path, exact, routes: subRoutes, redirect, component: Component } = route;
+  // const { path, exact, component } = route;
   return (
-    // <Route exact path="/products" render={MyProductPage} />
-    // <Route path="/tab/newsong" component={NewSong} />
     <Route
       key={key !== null ? key : ''}
       path={path}
       exact={!!exact}
-      // render={(routeProps) => (
-      //   Component ? (
-      //   <Component {...routeProps} {...props} routes={subRoutes}/>
-      //   ) : (redirect ? (
-      //   <Redirect from={path as string} to={redirect}/>
-      //   ) : null)
-      // )}
-      component={component}
+      render={routeProps => (
+        Component ? <Component {...routeProps} {...props} routes={subRoutes}/> : redirect ?
+          <Redirect from={path as string} to={redirect}/> : null
+      )}
+      // component={component}
     />
   );
 };

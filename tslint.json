@@ -9,8 +9,13 @@
     ]
   },
   "rules": {
+    "object-literal-sort-keys": false,// 对象属性是否按照顺序进行编写
+    "jsx-no-lambda": false,// jsx 中是否允许使用 lambda 语法
+    "ordered-imports": false,// 引入模块是否需要按照字母顺序
     "no-debugger": false,
-    "no-console": false
+    "no-console": false, // 不允许打印 console
+    "triple-equals": true,// 是否必须使用 === 取代 ==
+    "member-ordering": false // 对象成员是否需要按照顺序进行编写
   },
   "jsRules": {
     "object-literal-sort-keys": false

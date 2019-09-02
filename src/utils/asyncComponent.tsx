@@ -17,6 +17,7 @@ interface IState {
  * @param {string} [componentName='default'] 需要加载的组件名
  * @returns
  */
+// component: asyncComponent(() => import('@/page/Tab/NewSong'), 'NewSongPage'),
 export default function asyncComponent(asyncImport: () => Promise<any>, componentName: string = 'default') {
   class AsyncComponent extends React.Component<any, IState> {
 
@@ -68,7 +69,6 @@ export default function asyncComponent(asyncImport: () => Promise<any>, componen
       // TODO: 这里以后可以加上异步加载动画
       return loading ? <Loading/> : <this.component {...this.props}/>
     }
-
   }
 
   return AsyncComponent;
