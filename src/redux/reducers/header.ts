@@ -1,11 +1,8 @@
 /*
  * headerbar状态
  */
-// import { ISetHeaderAction } from '@/redux/actions/header';
+import { HeaderAction } from '@/redux/actions'
 import * as constants from '@/redux/constants'
-import { AnyAction } from 'redux';
-// import { createReducer } from '@/utils';
-// import { IAction } from '../actions';
 
 export interface IHeaderState {
   isShow?: boolean;
@@ -19,23 +16,8 @@ export const preHeaderState: IHeaderState = {
   title: '标题',
 };
 
-// const handlers = {
-//   [constants.SET_HEADER](state: IHeaderState,
-//     action: IAction<constants.SET_HEADER, IHeaderState>): IHeaderState {
-//     const { payload } = action;
-//     return {
-//       ...state,
-//       ...payload
-//     };
-//   }
-// };
-
-// const header = createReducer({ initialState: preHeaderState, handlers });
-
-// export default header;
-
 // 原始reducer
-export default function header(state: IHeaderState = preHeaderState, action: AnyAction): IHeaderState {
+export default function headerReducer(state: IHeaderState = preHeaderState, action: HeaderAction): IHeaderState {
   const { type, payload } = action
   switch (type) {
     case constants.SET_HEADER:

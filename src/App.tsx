@@ -5,9 +5,10 @@ import { red } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-import store from '@/redux/store'
+import configureStore from "@/redux/store";
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch } from 'react-router-dom';
+const store = configureStore();
 
 import Header from '@/components/Header'
 import HeaderBar from '@/components/HeaderBar'

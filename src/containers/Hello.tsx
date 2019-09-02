@@ -3,14 +3,14 @@
 // mapDispatchToProps利用dispatch函数，创建回调props将actions送到store。
 
 // import { connect, Dispatch } from 'react-redux';
+import * as actions from '@/redux/actions';
+import { IDemoState } from '@/redux/reducers/demo';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import Hello from '../components/Hello';
-import * as actions from '../redux/actions';
-import { IStoreState } from '../redux/store';
 
 // 应用包含两个属性：languageName和enthusiasmLevel。 我们的Hello组件，希望得到一个name和一个enthusiasmLevel。 mapStateToProps会从store得到相应的数据，如果需要的话将针对组件的props调整它。
-export function mapStateToProps({ enthusiasmLevel, languageName }: IStoreState) {
+export function mapStateToProps({ enthusiasmLevel, languageName }: IDemoState) {
   return {
     enthusiasmLevel,
     name: languageName,
