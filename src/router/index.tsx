@@ -9,6 +9,7 @@ export interface IRoute extends RouteProps {
   redirect?: string;
 }
 
+// 方式一：直接import。不管匹配到了哪一个 route，我们这里都一次性地引入所有的组件
 import RankInfo from '@/page/RankInfo'
 import SingerInfo from '@/page/SingerInfo'
 import SingerList from '@/page/SingerList'
@@ -18,7 +19,7 @@ import Rank from '@/page/Tab/Rank'
 import Singer from '@/page/Tab/Singer'
 import SongList from '@/page/Tab/SongList'
 
-
+// 方式二：异步组件asyncComponent。即只有在需要的时候才会引入
 export const newSongRoute: IRoute = {
   // component: asyncComponent(() => import('@/page/Tab/NewSong'), 'NewSongPage'),
   component: NewSong,

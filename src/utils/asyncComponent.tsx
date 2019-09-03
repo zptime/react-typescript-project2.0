@@ -17,7 +17,6 @@ interface IState {
  * @param {string} [componentName='default'] 需要加载的组件名
  * @returns
  */
-// component: asyncComponent(() => import('@/page/Tab/NewSong'), 'NewSongPage'),
 export default function asyncComponent(asyncImport: () => Promise<any>, componentName: string = 'default') {
   class AsyncComponent extends React.Component<any, IState> {
 

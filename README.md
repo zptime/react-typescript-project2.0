@@ -62,3 +62,11 @@ this.props.match.params.singerId
 (2) page/RankInfo 排行信息页
 
 (3) page/SongListInfo 歌单信息页
+
+## 20190902 周一
+(1) redux相关文件改造
+
+(2) utils/asyncComponent.tsx 异步组件
+http://www.wukai.me/2017/09/25/react-router-v4-code-splitting/
+
+(3) components/HeaderBar组件更新，mapStateToProps实现

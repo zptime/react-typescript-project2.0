@@ -8,12 +8,16 @@ import { ISinger } from '@/api/api'
 import CardItem from '@/components/CardItem'
 import { Link, RouteComponentProps } from 'react-router-dom'
 
+import { HeaderAction, setHeader } from '@/redux/actions'
+import { IHeaderState } from '@/redux/reducers/header';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+
 interface IRouteParams {
   singerType: string
 }
 
-interface IProps extends RouteComponentProps<IRouteParams>{
-  singers: ISinger[]
+interface IProps extends RouteComponentProps<IRouteParams>, ReturnType<typeof mapDispatchToProps>{
 }
 
 interface IState{
@@ -29,24 +33,43 @@ class SingerList extends React.Component<IProps, IState> {
   }
 
   public async componentDidMount(){
-    const { match: { params: { singerType } }} = this.props
+    const { setSingerHeader, location: { state: { title }}, match: { params: { singerType } }} = this.props
+    console.log(this.props)
+
+    setSingerHeader({
+      isShow: true,
+      title,
+      bg: 'rgb(44, 162, 249)'
+    });
+
     const { data: { singers: { list: { info }}}} = await Api.getSingerList({singerType})
     this.setState({ singers: info })
   }
 
   public render() {
     return(
-      <div>
-        {
-          this.state.singers.map( (singer) => (
-            <Link key={singer.singerid} to={`/singer/info/${singer.singerid}`}>
-              <CardItem name={singer.singername} imgUrl={singer.imgurl.replace('{size}', '400')}/>
-            </Link>
-          ))
-        }
+      <div className="page">
+        <div className="singer-list">
+          {
+            this.state.singers.map( (singer) => (
+              <Link key={singer.singerid} to={`/singer/info/${singer.singerid}`}>
+                <CardItem key={singer.singerid} name={singer.singername} imgUrl={singer.imgurl.replace('{size}', '400')}/>
+              </Link>
+            ))
+          }
+        </div>
       </div>
     )
   }
 }
 
-export default SingerList
+export function mapDispatchToProps(dispatch: Dispatch<HeaderAction>) {
+  return {
+    setSingerHeader(payload: IHeaderState) {
+      dispatch(setHeader(payload));
+    }
+  }
+}
+
+// export default SingerList
+export default connect(null, mapDispatchToProps)(SingerList);

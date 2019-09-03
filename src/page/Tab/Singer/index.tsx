@@ -20,7 +20,12 @@ class Singer extends React.Component {
               <div key={index} className="group">
                 {
                   itemArr.map( (item) => (
-                    <Link key={item.id} to={`/singer/list/${item.id}`}>
+                    <Link key={item.id} to={
+                      {
+                        pathname: `/singer/list/${item.id}`,
+                        state: { title: item.txt }
+                      }
+                    }>
                       <div className="group-item">
                         {item.txt}
                         <img src={arrowIconPng} className="group-item__right-icon"/>

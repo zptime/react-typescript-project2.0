@@ -5,8 +5,8 @@ import * as constants from '@/redux/constants'
 import { IHeaderState } from '@/redux/reducers/header'
 
 export interface ISetHeaderAction {
-  type: constants.SET_HEADER;
   payload: IHeaderState;
+  type: constants.SET_HEADER;
 }
 
 export type HeaderAction = ISetHeaderAction;
