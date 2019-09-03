@@ -19,6 +19,7 @@ import Rank from '@/page/Tab/Rank'
 import Singer from '@/page/Tab/Singer'
 import SongList from '@/page/Tab/SongList'
 import RouteTab from '@/page/Tab/Tab'
+import SearchPage from '@/page/Tab/Search'
 
 // 方式二：异步组件asyncComponent。即只有在需要的时候才会引入
 export const newSongRoute: IRoute = {
@@ -53,12 +54,13 @@ export const singerRoute: IRoute = {
   path: '/tab/singer',
 };
 
-// export const searchRoute: IRoute = {
-//   name: 'Search',
-//   exact: true,
-//   path: '/tab/search',
-//   component: asyncComponent(() => import('@/page/Tab/Search/Search'), 'SearchPage')
-// };
+export const searchRoute: IRoute = {
+  name: 'Search',
+  exact: true,
+  path: '/tab/search',
+  component: SearchPage
+  // component: asyncComponent(() => import('@/page/Tab/Search/Search'), 'SearchPage')
+};
 
 export const rankInfoRoute: IRoute = {
   // component: asyncComponent(() => import('@/page/RankInfo/RankInfo'), 'RankInfoPage'),
@@ -103,7 +105,7 @@ export const routes: IRoute[] = [
       rankRoute,
       songListRoute,
       singerRoute,
-      // searchRoute
+      searchRoute
     ]
   },
   rankInfoRoute,
@@ -123,6 +125,8 @@ export const routes: IRoute[] = [
 
 export function routeWithSubRoutes(route: IRoute, key: number | null = null, props: any = null) {
   const { path, exact, routes: subRoutes, redirect, component: Component } = route;
+  // <Route path={path} component={Component}></Route>
+  // 此处必须要在 tsconfig.json 中设置"jsx-no-lambda": false(jsx 中是否允许使用 lambda 语法), 否则报错
   return (
     <Route
       key={key !== null ? key : ''}
