@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './App.css';
 
 import { red } from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -44,13 +43,11 @@ class App extends React.Component {
             <div className="app">
               <Header/>
               <HeaderBar/>
-              <div className="tab-container">
-                <Switch>
-                  {
-                    routes.map((route, i) => routeWithSubRoutes(route, i))
-                  }
-                </Switch>
-              </div>
+              <Switch>
+                {
+                  routes.map((route, i) => routeWithSubRoutes(route, i))
+                }
+              </Switch>
             </div>
           </MuiThemeProvider>
         </BrowserRouter>

@@ -70,3 +70,10 @@ this.props.match.params.singerId
 http://www.wukai.me/2017/09/25/react-router-v4-code-splitting/
 
 (3) components/HeaderBar组件更新，mapStateToProps实现
+
+## 20190903 周二
+(1) material-ui tab更新，头部导航完善
+
+采用如下方式，报错：Import declaration conflicts with local declaration of 'Tab'(导入声明与“Tab”的本地声明冲突。)
+
+<Tab label="新歌" component={Link} to="/tab/newsong"/>

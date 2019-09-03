@@ -18,6 +18,7 @@ import NewSong from '@/page/Tab/NewSong'
 import Rank from '@/page/Tab/Rank'
 import Singer from '@/page/Tab/Singer'
 import SongList from '@/page/Tab/SongList'
+import RouteTab from '@/page/Tab/Tab'
 
 // 方式二：异步组件asyncComponent。即只有在需要的时候才会引入
 export const newSongRoute: IRoute = {
@@ -93,25 +94,26 @@ export const singerInfoRoute: IRoute = {
 };
 
 export const routes: IRoute[] = [
-  // {
-  //   // component: asyncComponent(() => import('@/page/Tab/Tab'), 'RouteTab'),
-  //   path: "/tab",
-  //   routes: [
-  //     newSongRoute,
-  //     rankRoute,
-  //     songListRoute,
-  //     singerRoute,
-  //     // searchRoute
-  //   ]
-  // },
-  newSongRoute,
-  rankRoute,
-  songListRoute,
-  singerRoute,
+  {
+    // component: asyncComponent(() => import('@/page/Tab/Tab'), 'RouteTab'),
+    component: RouteTab,
+    path: "/tab",
+    routes: [
+      newSongRoute,
+      rankRoute,
+      songListRoute,
+      singerRoute,
+      // searchRoute
+    ]
+  },
   rankInfoRoute,
   songListInfoRoute,
   singerListRoute,
   singerInfoRoute,
+  newSongRoute,
+  rankRoute,
+  songListRoute,
+  singerRoute,
   // 定义重定向默认路由
   {
     path: "/*",
@@ -121,7 +123,6 @@ export const routes: IRoute[] = [
 
 export function routeWithSubRoutes(route: IRoute, key: number | null = null, props: any = null) {
   const { path, exact, routes: subRoutes, redirect, component: Component } = route;
-  // const { path, exact, component } = route;
   return (
     <Route
       key={key !== null ? key : ''}
@@ -131,7 +132,6 @@ export function routeWithSubRoutes(route: IRoute, key: number | null = null, pro
         Component ? <Component {...routeProps} {...props} routes={subRoutes}/> : redirect ?
           <Redirect from={path as string} to={redirect}/> : null
       )}
-      // component={component}
     />
   );
 };
