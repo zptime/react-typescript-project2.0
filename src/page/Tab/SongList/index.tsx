@@ -31,7 +31,12 @@ class SongList extends React.Component<IProps, IState> {
       <div>
         {
           this.state.songLists.map( (item) => (
-            <Link key={item.specialid} to={`/plist/info/${item.specialid}`}>
+            <Link key={item.specialid} to={
+              {
+                pathname: `/plist/info/${item.specialid}`,
+                state: { title: item.specialname }
+              }
+            }>
               <CardItem name={item.specialname} imgUrl={item.imgurl.replace('{size}', '400')} playcount={item.playcount}/>
             </Link>
           ))

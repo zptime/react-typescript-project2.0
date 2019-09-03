@@ -26,7 +26,12 @@ class Rank extends React.Component<IProps, IProps> {
       <div>
         {
           this.state.ranks.map( (rank) => (
-            <Link key={rank.id} to={`/rank/info/${rank.rankid}`}>
+            <Link key={rank.id} to={
+              {
+                pathname: `/rank/info/${rank.rankid}`,
+                state: { title: rank.rankname }
+              }
+            }>
               <CardItem name={rank.rankname} imgUrl={rank.imgurl.replace('{size}', '400')} />
             </Link>
           ))

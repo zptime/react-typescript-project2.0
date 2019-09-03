@@ -12,6 +12,7 @@ import { HeaderAction, setHeader } from '@/redux/actions'
 import { IHeaderState } from '@/redux/reducers/header';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import './singerList.scss';
 
 interface IRouteParams {
   singerType: string
@@ -34,8 +35,6 @@ class SingerList extends React.Component<IProps, IState> {
 
   public async componentDidMount(){
     const { setSingerHeader, location: { state: { title }}, match: { params: { singerType } }} = this.props
-    console.log(this.props)
-
     setSingerHeader({
       isShow: true,
       title,
@@ -52,7 +51,12 @@ class SingerList extends React.Component<IProps, IState> {
         <div className="singer-list">
           {
             this.state.singers.map( (singer) => (
-              <Link key={singer.singerid} to={`/singer/info/${singer.singerid}`}>
+              <Link key={singer.singerid} to={
+                {
+                  pathname: `/singer/info/${singer.singerid}`,
+                  state: { title: singer.singername }
+                }
+              }>
                 <CardItem key={singer.singerid} name={singer.singername} imgUrl={singer.imgurl.replace('{size}', '400')}/>
               </Link>
             ))

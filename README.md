@@ -77,3 +77,5 @@ http://www.wukai.me/2017/09/25/react-router-v4-code-splitting/
 采用如下方式，报错：Import declaration conflicts with local declaration of 'Tab'(导入声明与“Tab”的本地声明冲突。)
 
 <Tab label="新歌" component={Link} to="/tab/newsong"/>
+
+(2) 相关info页面的头部配置（返回，title）
