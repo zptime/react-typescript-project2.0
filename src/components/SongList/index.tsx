@@ -15,8 +15,8 @@ class SongList extends React.Component<IProps> {
     return (
       <div>
         {
-          songs.map((song) => (
-            <SongItem title={song.filename} key={song.hash} />
+          songs.map((song,index) => (
+            <SongItem title={song.filename} key={index + song.hash} />
           ))
         }
       </div>

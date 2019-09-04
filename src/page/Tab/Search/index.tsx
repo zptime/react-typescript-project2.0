@@ -6,7 +6,7 @@ import { IHotSearch, ISong } from '@/api/api';
 import SongItem from '@/components/SongItem';
 import SongList from '@/components/SongList';
 import Button from '@material-ui/core/Button';
-import React, { ChangeEventHandler } from 'react';
+import React, { ChangeEventHandler, KeyboardEventHandler } from 'react';
 import './search.scss';
 
 interface IData {
@@ -21,7 +21,6 @@ interface IState extends IData {
 }
 
 class Search extends React.PureComponent<object, IState> {
-
   public state: IState = {
     searchText: '',
     totalResult: 0,
@@ -66,6 +65,14 @@ class Search extends React.PureComponent<object, IState> {
     });
   }
 
+  // 判断点击的键盘的keyCode是否为13，是就调用上面的搜索函数
+  public handleEnterKey: KeyboardEventHandler = (e) => {
+    // e.nativeEvent获取原生的事件对像   e.nativeEvent.keyCode
+    if(e.nativeEvent.keyCode === 13 || e.key === 'Enter'){
+      this.searchSong()
+    }
+  }
+
   public playMusic = (item: ISong) => {
     console.log(item);
   }
@@ -80,7 +87,7 @@ class Search extends React.PureComponent<object, IState> {
             <Button size="small" className="search-box__btn" variant="contained" color="primary" onClick={this.searchSong}>搜索</Button>
             <div className="search-box__input-wrapper">
               <span className="search-box__icon"/>
-              <input className="search-box__input" value={searchText} onChange={this.changeSearchText}/>
+              <input className="search-box__input" value={searchText} onChange={this.changeSearchText} onKeyPress={this.handleEnterKey} />
             </div>
           </div>
         </div>

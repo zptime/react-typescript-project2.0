@@ -79,3 +79,8 @@ http://www.wukai.me/2017/09/25/react-router-v4-code-splitting/
 <Tab label="新歌" component={Link} to="/tab/newsong"/>
 
 (2) 相关info页面的头部配置（返回，title）
+
+## 20190904 周三
+(1) input输入框的enter事件（page/Tab/Search）
+
+(2) react学习：https://www.kancloud.cn/tjs5945111/react/980496
