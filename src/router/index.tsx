@@ -112,10 +112,6 @@ export const routes: IRoute[] = [
   songListInfoRoute,
   singerListRoute,
   singerInfoRoute,
-  newSongRoute,
-  rankRoute,
-  songListRoute,
-  singerRoute,
   // 定义重定向默认路由
   {
     path: "/*",

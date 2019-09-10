@@ -11,6 +11,7 @@ const store = configureStore();
 
 import Header from '@/components/Header'
 import HeaderBar from '@/components/HeaderBar'
+import Player from '@/components/Player/Player'
 import { routes, routeWithSubRoutes } from './router';
 
 // A custom theme for this app
@@ -48,6 +49,7 @@ class App extends React.Component {
                   routes.map((route, i) => routeWithSubRoutes(route, i))
                 }
               </Switch>
+              <Player />
             </div>
           </MuiThemeProvider>
         </BrowserRouter>
