@@ -1,4 +1,5 @@
 # 仿酷狗音乐
+> 使用技术是react，typescripts，redux
 
 ## V1.2 仿酷狗音乐实例实现
 
