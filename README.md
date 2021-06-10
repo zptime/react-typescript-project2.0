@@ -1,4 +1,4 @@
-# react project demo
+# 仿酷狗音乐
 
 ## V1.2 仿酷狗音乐实例实现
 
